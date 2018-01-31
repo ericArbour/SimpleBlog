@@ -29,8 +29,7 @@ namespace SimpleBlog
                 .Include("~/scripts/jquery-3.3.1.js")
                 .Include("~/scripts/jquery.validate.js")
                 .Include("~/scripts/jquery.validate.unobtrusive.js")
-                .Include("~/scripts/bootstrap.js")
-                .Include("~/areas/admin/scripts/forms.js"));
+                .Include("~/scripts/bootstrap.js"));
         }
     }
 }
