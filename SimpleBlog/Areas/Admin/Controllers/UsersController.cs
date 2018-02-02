@@ -69,7 +69,7 @@ namespace SimpleBlog.Areas.Admin.Controllers
                 Roles = Database.Session.Query<Role>().Select(role => new RoleCheckbox
                 {
                     Id = role.Id,
-                    IsChecked = false,
+                    IsChecked = user.Roles.Contains(role),
                     Name = role.Name
                 }).ToList()
             });

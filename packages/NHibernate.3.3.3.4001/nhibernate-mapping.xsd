@@ -70,6 +70,8 @@
 			<xs:attribute name="optimistic-lock" default="true" type="xs:boolean">
 			</xs:attribute>
 			<xs:attribute name="node" type="xs:string" />
+			<xs:attribute name="embed-xml" default="true" type="xs:boolean">
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="bag">
@@ -685,7 +687,6 @@
 					<xs:element ref="query" />
 					<xs:element ref="sql-query" />
 				</xs:choice>
-				<xs:element ref="filter" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:attribute name="entity-name" type="xs:string">
 			</xs:attribute>
@@ -841,6 +842,8 @@
 			</xs:sequence>
 			<xs:attribute name="class" type="xs:string" />
 			<xs:attribute name="node" type="xs:string" />
+			<xs:attribute name="embed-xml" default="true" type="xs:boolean">
+			</xs:attribute>
 			<xs:attribute name="entity-name" type="xs:string" />
 			<xs:attribute name="column" type="xs:string" />
 			<xs:attribute name="formula" type="xs:string" />
@@ -899,6 +902,8 @@
 			<xs:attribute name="not-found" default="exception" type="notFoundMode">
 			</xs:attribute>
 			<xs:attribute name="node" type="xs:string" />
+			<xs:attribute name="embed-xml" default="true" type="xs:boolean">
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="map">
@@ -1017,6 +1022,8 @@
 			<xs:attribute name="not-found" default="exception" type="notFoundMode">
 			</xs:attribute>
 			<xs:attribute name="node" type="xs:string" />
+			<xs:attribute name="embed-xml" default="true" type="xs:boolean">
+			</xs:attribute>
 			<xs:attribute name="entity-name" type="xs:string" />
 		</xs:complexType>
 	</xs:element>
@@ -1043,6 +1050,8 @@
 			<xs:attribute name="lazy" type="laziness">
 			</xs:attribute>
 			<xs:attribute name="node" type="xs:string" />
+			<xs:attribute name="embed-xml" default="true" type="xs:boolean">
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="param">
@@ -1111,6 +1120,8 @@
 			<xs:attribute name="optimistic-lock" default="true" type="xs:boolean">
 			</xs:attribute>
 			<xs:attribute name="node" type="xs:string" />
+			<xs:attribute name="embed-xml" default="true" type="xs:boolean">
+			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="properties">
@@ -1354,7 +1365,6 @@
 					<xs:element ref="query" />
 					<xs:element ref="sql-query" />
 				</xs:choice>
-				<xs:element ref="filter" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 			<xs:attribute name="entity-name" type="xs:string" />
 			<xs:attribute name="name" type="xs:string" />
@@ -1420,6 +1430,7 @@
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="poco" />
+						<xs:enumeration value="xml" />
 						<xs:enumeration value="dynamic-map" />
 					</xs:restriction>
 				</xs:simpleType>
@@ -1573,6 +1584,8 @@
 		<xs:attribute name="optimistic-lock" default="true" type="xs:boolean">
 		</xs:attribute>
 		<xs:attribute name="node" type="xs:string" />
+		<xs:attribute name="embed-xml" default="true" type="xs:boolean">
+		</xs:attribute>
 		<xs:attribute name="generic" type="xs:boolean" use="optional">
 			<xs:annotation>
 				<xs:documentation>The concrete collection should use a generic version or an object-based version.</xs:documentation>
@@ -1653,13 +1666,8 @@
 	<xs:simpleType name="flushMode">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="auto" />
-			<xs:enumeration value="manual" />
+			<xs:enumeration value="never" />
 			<xs:enumeration value="always" />
-			<xs:enumeration value="never">
-				<xs:annotation>
-					<xs:documentation>Obsolete, please use manual instead.</xs:documentation>
-				</xs:annotation>
-			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:simpleType name="cacheMode">

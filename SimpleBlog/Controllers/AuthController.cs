@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using SimpleBlog.ViewModels;
 using SimpleBlog.Models;
+using NHibernate.Linq;
 
 namespace SimpleBlog.Controllers
 {
