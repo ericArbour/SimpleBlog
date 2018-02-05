@@ -6,6 +6,7 @@ using NHibernate.Cfg;
 using NHibernate.Mapping.ByCode;
 using SimpleBlog.Models;
 using NHibernate;
+using static SimpleBlog.Models.Post;
 
 namespace SimpleBlog
 {
@@ -31,6 +32,8 @@ namespace SimpleBlog
             var mapper = new ModelMapper();
             mapper.AddMapping<UserMap>();
             mapper.AddMapping<RoleMap>();
+            mapper.AddMapping<TagMap>();
+            mapper.AddMapping<PostMap>();
 
             config.AddMapping(mapper.CompileMappingForAllExplicitlyAddedEntities());
 
